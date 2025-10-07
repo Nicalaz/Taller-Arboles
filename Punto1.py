@@ -33,23 +33,32 @@ class Arbol:
     def peso(self):
         return self._contar_nodos(self.raiz)
 
-    def _contar_nodos(self, nodo):
+    def contarNodos(self, nodo):
         if nodo is None:
             return 0
         total = 1  
         for hijo in nodo.hijos:
-            total += self._contar_nodos(hijo)
+            total += self.contarNodos(hijo)
         return total
 
     #Altura del árbol
     def altura(self):
-        return self._altura_recursiva(self.raiz)
+        return self.maxAltura(self.raiz)
 
-    def _altura_recursiva(self, nodo):
+    def maxAltura(self, nodo):
         if nodo is None:
             return 0
         if not nodo.hijos:
             return 1
-        return 1 + max(self._altura_recursiva(hijo) for hijo in nodo.hijos)
+        return 1 + max(self.maxAltura(hijo) for hijo in nodo.hijos)
+    
+#PRUEBA   
+orden = int(input("Defina el orden del arbol: "))
+arbol1 = Arbol(orden)
+arbol1.crear_arbol()
+print("Peso del arbol: ", arbol1.peso())
+print("Orden del arbol: " , arbol1.orden)
+print("Altura del arbol: " , arbol1.altura())
+    
 
 
