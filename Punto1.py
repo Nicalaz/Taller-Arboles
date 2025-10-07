@@ -31,7 +31,7 @@ class Arbol:
 
     #Peso del árbol 
     def peso(self):
-        return self._contar_nodos(self.raiz)
+        return self.contarNodos(self.raiz)
 
     def contarNodos(self, nodo):
         if nodo is None:
