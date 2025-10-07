@@ -55,7 +55,7 @@ class Arbol:
 #PRUEBA   
 orden = int(input("Defina el orden del arbol: "))
 arbol1 = Arbol(orden)
-arbol1.crear_arbol()
+arbol1.crearArbol()
 print("Peso del arbol: ", arbol1.peso())
 print("Orden del arbol: " , arbol1.orden)
 print("Altura del arbol: " , arbol1.altura())
