@@ -29,4 +29,27 @@ class Arbol:
             if preguntarMasHijos == 's':
                 self.agregarHijos(nuevoHijo)
 
+    #Peso del árbol 
+    def peso(self):
+        return self._contar_nodos(self.raiz)
+
+    def _contar_nodos(self, nodo):
+        if nodo is None:
+            return 0
+        total = 1  
+        for hijo in nodo.hijos:
+            total += self._contar_nodos(hijo)
+        return total
+
+    #Altura del árbol
+    def altura(self):
+        return self._altura_recursiva(self.raiz)
+
+    def _altura_recursiva(self, nodo):
+        if nodo is None:
+            return 0
+        if not nodo.hijos:
+            return 1
+        return 1 + max(self._altura_recursiva(hijo) for hijo in nodo.hijos)
+
 
